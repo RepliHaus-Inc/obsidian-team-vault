@@ -1,0 +1,676 @@
+/* Team Vault — Plugin Styles */
+
+/* ==================== Status Bar ==================== */
+.tv-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tv-status-bar .status-icon {
+  font-size: 12px;
+}
+
+.tv-status-bar.syncing .status-icon {
+  animation: tv-spin 1s linear infinite;
+}
+
+@keyframes tv-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.tv-status-bar.error {
+  color: var(--text-error);
+}
+
+.tv-status-bar.success {
+  color: var(--text-success, var(--interactive-success));
+}
+
+.tv-status-bar.pending {
+  color: var(--text-warning, orange);
+}
+
+/* ==================== Activity Feed ==================== */
+.tv-activity-view {
+  padding: 8px;
+}
+
+.tv-activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.tv-activity-header h4 {
+  margin: 0;
+}
+
+.tv-feed-filters {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.tv-filter-btn {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: transparent;
+  cursor: pointer;
+  color: var(--text-muted);
+}
+
+.tv-filter-btn.active {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.tv-feed-item {
+  display: flex;
+  gap: 8px;
+  padding: 6px 4px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  cursor: pointer;
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+.tv-feed-item-new {
+  opacity: 1;
+}
+
+.tv-feed-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.tv-feed-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  flex-shrink: 0;
+}
+
+.tv-feed-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.tv-feed-action {
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.tv-feed-action strong {
+  font-weight: 600;
+}
+
+.tv-feed-target {
+  color: var(--text-accent);
+  text-decoration: none;
+}
+
+.tv-feed-time {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.tv-feed-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 24px 8px;
+  font-size: 13px;
+}
+
+/* ==================== New / Unseen ==================== */
+.tv-new-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px 4px 6px;
+}
+
+.tv-new-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--interactive-accent);
+}
+
+.tv-feed-item.tv-feed-item-new {
+  background: var(--background-secondary);
+  border-left: 3px solid var(--interactive-accent);
+  border-radius: 0 4px 4px 0;
+  opacity: 1;
+}
+
+.tv-feed-item-new .tv-feed-action {
+  font-weight: 600;
+}
+
+.tv-feed-divider {
+  height: 1px;
+  background: var(--background-modifier-border);
+  margin: 12px 0;
+  position: relative;
+}
+
+.tv-feed-divider::after {
+  content: "Earlier";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--background-primary);
+  padding: 0 8px;
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+/* ==================== Comments ==================== */
+.tv-comment-view {
+  padding: 8px;
+}
+
+.tv-comment-thread {
+  margin-bottom: 16px;
+}
+
+.tv-comment-file-link {
+  font-size: 11px;
+  color: var(--text-accent);
+  margin-bottom: 4px;
+  padding: 2px 0;
+}
+
+.tv-comment-file-link:hover {
+  text-decoration: underline;
+}
+
+.tv-comment-anchor {
+  font-size: 11px;
+  color: var(--text-muted);
+  padding: 4px 8px;
+  background: var(--background-secondary);
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-family: var(--font-monospace);
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.tv-comment {
+  padding: 8px;
+  margin-bottom: 4px;
+  border-left: 3px solid var(--interactive-accent);
+  background: var(--background-secondary);
+  border-radius: 0 4px 4px 0;
+}
+
+.tv-comment.resolved {
+  border-left-color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.tv-comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.tv-comment-author {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.tv-comment-date {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.tv-comment-body {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.mention {
+  color: var(--text-accent);
+  font-weight: 600;
+}
+
+.mention-me {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.tv-comment-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.tv-comment-actions button {
+  font-size: 11px;
+  padding: 2px 6px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  color: var(--text-muted);
+}
+
+.tv-comment-actions button:hover {
+  color: var(--text-normal);
+  background: var(--background-modifier-hover);
+}
+
+.tv-comment-input-area {
+  margin-top: 8px;
+}
+
+.tv-comment-input-area textarea {
+  width: 100%;
+  min-height: 60px;
+  resize: vertical;
+  font-size: 13px;
+  padding: 6px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 4px;
+  background: var(--background-primary);
+  color: var(--text-normal);
+  font-family: inherit;
+}
+
+.tv-comment-input-area .button-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  justify-content: flex-end;
+}
+
+/* ==================== Gutter Markers ==================== */
+.tv-gutter-marker {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--interactive-accent);
+  cursor: pointer;
+  margin: 4px auto;
+}
+
+.tv-gutter-marker.resolved {
+  background: var(--text-muted);
+  opacity: 0.5;
+}
+
+/* ==================== Mention Suggest ==================== */
+.tv-mention-suggest {
+  position: absolute;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  max-height: 160px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.tv-mention-item {
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.tv-mention-item:hover,
+.tv-mention-item.selected {
+  background: var(--background-modifier-hover);
+}
+
+/* ==================== Conflict Modal ==================== */
+.tv-conflict-modal {
+  max-width: 800px;
+}
+
+.tv-conflict-file {
+  margin-bottom: 16px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.tv-conflict-file-header {
+  padding: 8px 12px;
+  background: var(--background-secondary);
+  font-weight: 600;
+  font-size: 13px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.tv-conflict-sides {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.tv-conflict-side {
+  padding: 8px;
+  font-family: var(--font-monospace);
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.tv-conflict-side:first-child {
+  border-right: 1px solid var(--background-modifier-border);
+}
+
+.tv-conflict-side-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+  font-family: var(--font-interface);
+}
+
+.tv-conflict-buttons {
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--background-modifier-border);
+  justify-content: center;
+}
+
+/* ==================== File Explorer Badges ==================== */
+.tv-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 600;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  margin-left: 4px;
+}
+
+.tv-badge.modified {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+/* ==================== Inline Diff Highlighting ==================== */
+.tv-diff-added {
+  background: rgba(46, 160, 67, 0.15);
+  border-left: 3px solid #2ea043;
+}
+
+.tv-diff-removed {
+  background: rgba(248, 81, 73, 0.15);
+  border-left: 3px solid #f85149;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.tv-badge.has-comments {
+  background: var(--text-warning, orange);
+  color: white;
+}
+
+/* ==================== Ribbon ==================== */
+.tv-ribbon-syncing svg {
+  animation: tv-spin 1s linear infinite;
+}
+
+/* ==================== Obsidian Sync Warning ==================== */
+.tv-sync-warning {
+  padding: 16px;
+  text-align: center;
+}
+
+.tv-sync-warning h3 {
+  color: var(--text-error);
+  margin-bottom: 8px;
+}
+
+/* ==================== Setup Wizard ==================== */
+.tv-setup-wizard {
+  padding: 8px 4px;
+}
+
+.tv-wizard-header {
+  margin-bottom: 24px;
+}
+
+.tv-wizard-title {
+  font-size: 1.4em;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.tv-wizard-subtitle {
+  color: var(--text-muted);
+  margin: 0 0 20px;
+  font-size: 0.9em;
+}
+
+/* Step indicator row */
+.tv-wizard-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.tv-wizard-step-dot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+/* Connector line between dots */
+.tv-wizard-step-dot:not(:last-child)::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--background-modifier-border);
+  margin: 0 8px;
+  flex-shrink: 0;
+}
+
+.tv-wizard-step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  font-size: 0.8em;
+  font-weight: 600;
+  background: var(--background-modifier-border);
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tv-wizard-step-label {
+  font-size: 0.8em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.tv-step-active .tv-wizard-step-number {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.tv-step-active .tv-wizard-step-label {
+  color: var(--text-normal);
+  font-weight: 600;
+}
+
+.tv-step-done .tv-wizard-step-number {
+  background: var(--interactive-success, var(--color-green));
+  color: #fff;
+}
+
+.tv-step-done .tv-wizard-step-number::before {
+  content: "✓";
+}
+
+/* Step body */
+.tv-wizard-body {
+  min-height: 220px;
+  margin-bottom: 16px;
+}
+
+.tv-step-heading {
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.tv-step-desc {
+  color: var(--text-muted);
+  font-size: 0.85em;
+  margin: 0 0 16px;
+}
+
+/* Info / instruction box */
+.tv-wizard-info-box {
+  background: var(--background-secondary);
+  border-left: 3px solid var(--interactive-accent);
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 0.85em;
+  margin-bottom: 14px;
+}
+
+.tv-wizard-info-box ul {
+  margin: 6px 0 0 16px;
+  padding: 0;
+}
+
+.tv-wizard-info-box li {
+  margin-bottom: 3px;
+  color: var(--text-muted);
+}
+
+.tv-wizard-info-box--success {
+  border-left-color: var(--interactive-success, var(--color-green));
+}
+
+/* Link row */
+.tv-wizard-link-row {
+  font-size: 0.85em;
+  margin-bottom: 12px;
+  color: var(--text-muted);
+}
+
+.tv-wizard-link-row a {
+  color: var(--link-color, var(--interactive-accent));
+}
+
+/* Test connection */
+.tv-wizard-test-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.tv-wizard-test-status {
+  font-size: 0.85em;
+}
+
+.tv-test-success {
+  color: var(--text-success, var(--interactive-success));
+}
+
+.tv-test-error {
+  color: var(--text-error);
+}
+
+/* Footer */
+.tv-wizard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--background-modifier-border);
+}
+
+.tv-wizard-footer-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Buttons */
+.tv-wizard-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 16px;
+  border-radius: 5px;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: opacity 0.12s, background 0.12s;
+  line-height: 1.4;
+}
+
+.tv-wizard-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.tv-wizard-btn-primary {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.tv-wizard-btn-primary:hover:not(:disabled) {
+  opacity: 0.88;
+}
+
+.tv-wizard-btn-secondary {
+  background: var(--background-modifier-border);
+  color: var(--text-normal);
+  border-color: var(--background-modifier-border);
+}
+
+.tv-wizard-btn-secondary:hover:not(:disabled) {
+  background: var(--background-modifier-hover);
+}
+
+.tv-wizard-btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: transparent;
+}
+
+.tv-wizard-btn-ghost:hover:not(:disabled) {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}

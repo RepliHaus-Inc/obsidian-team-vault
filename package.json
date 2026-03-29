@@ -1,0 +1,27 @@
+{
+  "name": "obsidian-team-vault",
+  "version": "2.2.0",
+  "description": "Team Vault — Obsidian plugin for git-powered team collaboration (sync, activity feed, comments)",
+  "main": "main.js",
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production"
+  },
+  "keywords": [
+    "obsidian",
+    "plugin",
+    "git",
+    "collaboration"
+  ],
+  "author": "Team Vault Contributors",
+  "license": "MIT",
+  "devDependencies": {
+    "@codemirror/state": "^6.6.0",
+    "@codemirror/view": "^6.40.0",
+    "@types/node": "^22.0.0",
+    "builtin-modules": "^4.0.0",
+    "esbuild": "^0.24.0",
+    "obsidian": "latest",
+    "typescript": "^5.7.0"
+  }
+}
