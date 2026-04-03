@@ -1,7 +1,7 @@
 {
   "id": "team-vault",
   "name": "Team Vault",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "minAppVersion": "1.4.0",
   "description": "Git-powered team collaboration for Obsidian — sync, activity feed, inline comments with @mentions, canvas comments.",
   "author": "Team Vault Contributors",

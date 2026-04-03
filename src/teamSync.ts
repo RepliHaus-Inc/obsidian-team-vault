@@ -189,7 +189,10 @@ export class TeamSync {
         });
         if (permRes.status === 200) {
           const perm = permRes.json.permission;
-          this.isRepoAdmin = perm === "admin" || perm === "write";
+          // Only grant plugin-admin to GitHub repo admins (org owners
+          // or users explicitly given admin access).  "write" is NOT
+          // sufficient — otherwise every contributor becomes an admin.
+          this.isRepoAdmin = perm === "admin";
         }
       } catch {
         // Do not fall back to the admins array in team.json.
