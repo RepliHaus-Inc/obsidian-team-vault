@@ -188,8 +188,10 @@ export class TeamSync {
           },
         });
         if (permRes.status === 200) {
+          // Only GitHub repo `admin` role grants plugin admin.
+          // `write` is a normal collaborator and must NOT be treated as admin.
           const perm = permRes.json.permission;
-          this.isRepoAdmin = perm === "admin" || perm === "write";
+          this.isRepoAdmin = perm === "admin";
         }
       } catch {
         // Do not fall back to the admins array in team.json.

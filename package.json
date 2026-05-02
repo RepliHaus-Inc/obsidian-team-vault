@@ -1,6 +1,6 @@
 {
   "name": "obsidian-team-vault",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Team Vault — Obsidian plugin for git-powered team collaboration (sync, activity feed, comments)",
   "main": "main.js",
   "scripts": {

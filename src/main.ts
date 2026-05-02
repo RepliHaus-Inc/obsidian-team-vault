@@ -208,6 +208,15 @@ export default class TeamVaultPlugin extends Plugin {
     // Start auto-sync
     this.restartAutoSync();
 
+    // Pull on startup so the vault is fresh before the user starts editing.
+    // Without this, a session that ends before the auto-sync interval fires
+    // (default 5 min) leaves the local vault behind remote.
+    if (this.settings.autoSync) {
+      window.setTimeout(() => {
+        if (!this.isSyncing) this.performSync();
+      }, 2000);
+    }
+
     // Load comment data
     await this.commentStore.load();
 
